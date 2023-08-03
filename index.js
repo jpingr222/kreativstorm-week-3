@@ -12,6 +12,10 @@ const playerIsWinner = (playerSelection, computerSelection) => {
 }
 
 const playRound = (playerSelection, computerSelection) => {
+  if (playerSelection === null) {
+    return 'Invalid selection! Please select again';
+  }
+
   const lowerCasePlayerSelection = playerSelection.toLowerCase();
 
   if (!validSelections.includes(lowerCasePlayerSelection)) {
