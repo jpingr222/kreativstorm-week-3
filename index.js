@@ -22,12 +22,12 @@ const playRound = (playerSelection, computerSelection) => {
     return 'Invalid selection! Please select again';
   }
 
-  if (playerSelection === computerSelection) {
+  if (lowerCasePlayerSelection === computerSelection) {
     return `It's a tie! You both picked ${computerSelection}`;
-  } else if (playerIsWinner(playerSelection, computerSelection)) {
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
+  } else if (playerIsWinner(lowerCasePlayerSelection, computerSelection)) {
+    return `You Win! ${lowerCasePlayerSelection} beats ${computerSelection}`;
   } else {
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    return `You Lose! ${computerSelection} beats ${lowerCasePlayerSelection}`;
   }
 }
 
@@ -36,7 +36,7 @@ const game = () => {
 
   const gameRoundStatus = [];
   while (gameRoundStatus.length < 5) {
-    const playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
+    const playerSelection = prompt('Open your console.log to play- Please enter your selection (rock, paper, or scissors)');
     const computerSelection = computerPlay();
 
     const gameResult = playRound(playerSelection, computerSelection);
