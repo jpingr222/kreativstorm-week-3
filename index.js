@@ -12,7 +12,7 @@ const playerIsWinner = (playerSelection, computerSelection) => {
 }
 
 const playRound = (playerSelection, computerSelection) => {
-  if (playerSelection === null) {
+  if (playerSelection === '') {
     return 'Invalid selection! Please select again';
   }
 
@@ -30,7 +30,7 @@ const playRound = (playerSelection, computerSelection) => {
   }
 
   if (lowerCasePlayerSelection === computerSelection) {
-    return `It's a tie! You both picked ${computerSelection}`;
+    return `It's a tie! You both picked ${userAndCompSelection['computerSelection']}`;
   } else if (playerIsWinner(lowerCasePlayerSelection, computerSelection)) {
     return `You Win! ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
   } else {
