@@ -11,6 +11,28 @@ const playerIsWinner = (playerSelection, computerSelection) => {
     );
 }
 
+const addFunnyMessage = (win) => {
+    const funnyWinInfo = 
+    ["Amazing, You were born to win!",
+    "Wow, you're a rockstar!",
+    "You're the ultimate champion!",
+    "You're unstoppable",
+    "You are on fire!"
+    ]
+
+const funnyloseInfo = 
+    [
+    "Losing is essential to anyone’s success.",
+    "You are a fighter, never give up!",
+    "You almost got it! Keep it up!",
+    "You've got skills, keep practicing!",
+    "Dont worry, better luck soon!"
+    ]
+const displayMessage = win? funnyWinInfo: funnyloseInfo
+    const randomMessage = displayMessage[Math.floor(Math.random()*displayMessage.length)]
+    return randomMessage
+}
+
 const playRound = (playerSelection, computerSelection) => {
     const lowerCasePlayerSelection = playerSelection.toLowerCase();
     if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
@@ -25,9 +47,9 @@ const playRound = (playerSelection, computerSelection) => {
         if (lowerCasePlayerSelection === computerSelection) {
             return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
         } else if (playerIsWinner(lowerCasePlayerSelection, computerSelection)) {
-            return `You Win! \uD83C\uDF89 ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
+            return `You Win! ${addFunnyMessage(true)} \uD83C\uDF89 ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
         } else {
-            return `You Lose! \uD83D\uDE1E ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
+            return `You Lose! ${addFunnyMessage(false)} \uD83D\uDE1E ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
         }
     }
 }
