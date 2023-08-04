@@ -34,7 +34,7 @@ const displayMessage = win? funnyWinInfo: funnyloseInfo
 }
 
 const playRound = (playerSelection, computerSelection) => {
-    const lowerCasePlayerSelection = playerSelection.toLowerCase();
+    const lowerCasePlayerSelection = playerSelection===null?null:playerSelection.toLowerCase();
     if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
     }else{
