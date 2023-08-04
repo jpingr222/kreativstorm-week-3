@@ -17,6 +17,13 @@ const playRound = (playerSelection, computerSelection) => {
   }
 
   const lowerCasePlayerSelection = playerSelection.toLowerCase();
+  
+  const userAndCompSelection = {
+    playerSelection: lowerCasePlayerSelection[0].toUpperCase()
+    .concat(lowerCasePlayerSelection.slice(1)),
+    computerSelection: computerSelection[0].toUpperCase()
+    .concat(computerSelection.slice(1))
+  };
 
   if (!validSelections.includes(lowerCasePlayerSelection)) {
     return 'Invalid selection! Please select again';
@@ -25,9 +32,9 @@ const playRound = (playerSelection, computerSelection) => {
   if (lowerCasePlayerSelection === computerSelection) {
     return `It's a tie! You both picked ${computerSelection}`;
   } else if (playerIsWinner(lowerCasePlayerSelection, computerSelection)) {
-    return `You Win! ${lowerCasePlayerSelection} beats ${computerSelection}`;
+    return `You Win! ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
   } else {
-    return `You Lose! ${computerSelection} beats ${lowerCasePlayerSelection}`;
+    return `You Lose! ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
   }
 }
 
