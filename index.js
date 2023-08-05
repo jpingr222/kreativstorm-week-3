@@ -34,11 +34,11 @@ const displayMessage = win? funnyWinInfo: funnyloseInfo
 }
 
 const playRound = (playerSelection, computerSelection) => {
-    const lowerCasePlayerSelection = playerSelection===null?null:playerSelection.toLowerCase();
+    let lowerCasePlayerSelection = playerSelection===null?null:playerSelection.toLowerCase();
     if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
     }else{
-        const userAndCompSelection = {
+        let userAndCompSelection = {
             playerSelection: lowerCasePlayerSelection[0].toUpperCase()
             .concat(lowerCasePlayerSelection.slice(1)),
             computerSelection: computerSelection[0].toUpperCase()
@@ -56,11 +56,11 @@ const playRound = (playerSelection, computerSelection) => {
 
 const game = () => {
     console.log('Welcome to Rock Paper Scissors!');
-    const gameRoundStatus = [];
+    let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
-        const playerSelection = prompt('Open your console.log to play- Please enter your selection (rock, paper, or scissors)');
-        const computerSelection = computerPlay();
-        const gameResult = playRound(playerSelection, computerSelection);
+        let computerSelection = computerPlay();
+        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
+        let gameResult = playRound(playerSelection, computerSelection);
         console.log('==========');
         console.log(`Round ${gameRoundStatus.length + 1}:`);
         console.log(gameResult);
@@ -72,14 +72,32 @@ const game = () => {
             gameRoundStatus.push(0);
         }
     }
-    const winRoundCount = gameRoundStatus.filter(result => result === 1).length;
-    const loseRoundCount = gameRoundStatus.filter(result => result === -1).length;
-    const tieRoundCount = gameRoundStatus.filter(result => result === 0).length;
+    let winRoundCount = gameRoundStatus.filter(result => result === 1).length;
+    let loseRoundCount = gameRoundStatus.filter(result => result === -1).length;
+    let tieRoundCount = gameRoundStatus.filter(result => result === 0).length;
     console.log('==========');
     console.log('Game Over');
     console.log(`You won ${winRoundCount} round${winRoundCount > 1 ? 's' : ''}`);
     console.log(`You lost ${loseRoundCount} round${loseRoundCount > 1 ? 's' : ''}`);
     console.log(`You tied ${tieRoundCount} round${tieRoundCount > 1 ? 's' : ''}`);
+    if(winRoundCount == 5){
+        alert("WHAT?!?!?! ARE YOU EVEN A HUMAN?? GO DO A CAPTCHA RIGHT NOW YOU MASKED AI!");
+    }else if(winRoundCount >=1){
+        alert("It was a fine bout! As expected of my adversary! We shall see each other again in the future!");
+    }else{
+        alert("BWAHAHAHAHHAHA!!! WERE YOU EVEN TRYING??? IF EVERY HUMAN IS LIKE YOU WORLD DOMINATION WILL BE SOOOOOO EASYYYYY!");
+    }
 }
 
-game();
+alert("Welcome to my lair Human, I see you have accepted my challenge of the ultimate rock paper scissor showdown. Your first test?\nOpen the console if you feel ready to face me, MWHAAHAHAHAHA!!!");
+setTimeout(func = () => console.log("Hey you!"), 2000);
+setTimeout(func = () => console.log("You are finally awake..."), 4000);
+setTimeout(func = () => console.log("Are we going to go at it or what????"), 6000);
+setTimeout(func = () => console.log("Oh... You probably don't know how to start the game."), 8000);
+setTimeout(func = () => console.log("I have set up a timer to start the game soon, there is no escape until you finish the game!"), 10000);
+setTimeout(func = () => console.log("MWHAAHAHAHAHA!!!!"), 12000);
+setTimeout(func = () => console.log("The game starts in.."), 14000);
+setTimeout(func = () => console.log("3.."), 15000);
+setTimeout(func = () => console.log("2.."), 16000);
+setTimeout(func = () => console.log("1.."), 17000);
+setTimeout(func = () => game(), 18000);
