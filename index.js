@@ -89,15 +89,19 @@ const game = () => {
     }
 }
 
-alert("Welcome to my lair Human, I see you have accepted my challenge of the ultimate rock paper scissor showdown. Your first test?\nOpen the console if you feel ready to face me, MWHAAHAHAHAHA!!!");
-setTimeout(func = () => console.log("Hey you!"), 2000);
-setTimeout(func = () => console.log("You are finally awake..."), 4000);
-setTimeout(func = () => console.log("Are we going to go at it or what????"), 6000);
-setTimeout(func = () => console.log("Oh... You probably don't know how to start the game."), 8000);
-setTimeout(func = () => console.log("I have set up a timer to start the game soon, there is no escape until you finish the game!"), 10000);
-setTimeout(func = () => console.log("MWHAAHAHAHAHA!!!!"), 12000);
-setTimeout(func = () => console.log("The game starts in.."), 14000);
-setTimeout(func = () => console.log("3.."), 15000);
-setTimeout(func = () => console.log("2.."), 16000);
-setTimeout(func = () => console.log("1.."), 17000);
-setTimeout(func = () => game(), 18000);
+function story(){
+    alert("Welcome to my lair Human, I see you have accepted my challenge of the ultimate rock paper scissor showdown. Your first test?\nOpen the console if you feel ready to face me, MWHAAHAHAHAHA!!!");
+    setTimeout(func = () => console.log("Hey you!"), 2000);
+    setTimeout(func = () => console.log("You are finally awake..."), 4000);
+    setTimeout(func = () => console.log("Are we going to go at it or what????"), 6000);
+    setTimeout(func = () => console.log("Oh... You probably don't know how to start the game."), 8000);
+    setTimeout(func = () => console.log("I have set up a timer to start the game soon, there is no escape until you finish the game!"), 10000);
+    setTimeout(func = () => console.log("MWHAAHAHAHAHA!!!!"), 12000);
+    setTimeout(func = () => console.log("The game starts in.."), 14000);
+    setTimeout(func = () => console.log("3.."), 15000);
+    setTimeout(func = () => console.log("2.."), 16000);
+    setTimeout(func = () => console.log("1.."), 17000);
+    setTimeout(func = () => game(), 18000);
+}
+
+story();
