@@ -39,7 +39,7 @@ const playRound = (playerSelection, computerSelection) => {
     let lowerCasePlayerSelection = (
         playerSelection === null
         ? null
-        : playerSelection.toLowerCase()
+        : playerSelection.toLowerCase().strip();
     );
 
     if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
