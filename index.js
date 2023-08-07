@@ -1,5 +1,5 @@
 const validSelections = ['rock', 'paper', 'scissors'];
-let isGameOver = false;
+// let isGameOver = false;
 
 const computerPlay = () => {
     return validSelections[Math.floor(Math.random() * validSelections.length)];
@@ -65,7 +65,7 @@ const playRound = (playerSelection, computerSelection) => {
 }
 
 const game = () => {
-    isGameOver = false;
+    // isGameOver = false;
     console.log('Welcome to Rock Paper Scissors!');
     let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
@@ -98,10 +98,10 @@ const game = () => {
     } else {
         alert('BWAHAHAHAHHAHA!!! WERE YOU EVEN TRYING??? IF EVERY HUMAN IS LIKE YOU WORLD DOMINATION WILL BE SOOOOOO EASYYYYY!');
     }
-    console.log('==========');
-    console.log('Press "R" to challenge me again');
-    console.log('==========');
-    isGameOver = true;
+    // console.log('==========');
+    // console.log('Press "R" to challenge me again');
+    // console.log('==========');
+    // isGameOver = true;
 }
 
 alert('Welcome to my lair Human, I see you have accepted my challenge of the ultimate rock paper scissor showdown. Your first test?\nOpen the console if you feel ready to face me, MWHAAHAHAHAHA!!!');
@@ -116,8 +116,8 @@ setTimeout(() => console.log('3..'), 15000);
 setTimeout(() => console.log('2..'), 16000);
 setTimeout(() => console.log('1..'), 17000);
 setTimeout(() => game(), 18000);
-document.addEventListener('keydown', e => {
-    if (isGameOver && e.key.toLowerCase() === 'r') {
-        game();
-    }
-});
+// document.addEventListener('keydown', e => {
+//     if (isGameOver && e.key.toLowerCase() === 'r') {
+//         game();
+//     }
+// });
