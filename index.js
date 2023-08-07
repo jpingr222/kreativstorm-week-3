@@ -1,8 +1,6 @@
 const validSelections = ['rock', 'paper', 'scissors'];
 
-const computerPlay = () => {
-    return validSelections[Math.floor(Math.random() * validSelections.length)];
-}
+const computerPlay = () => validSelections[Math.floor(Math.random() * validSelections.length)];
 
 const playerIsWinner = (playerSelection, computerSelection) => {
     return (
@@ -35,11 +33,21 @@ const addFunnyMessage = (win) => {
     return randomMessage;
 }
 
+const endGameDialogue =(winRoundCount) => {
+    if (winRoundCount == 5) {
+      alert('WHAT?!?!?! ARE YOU EVEN A HUMAN?? GO DO A CAPTCHA RIGHT NOW YOU MASKED AI!');
+    } else if (winRoundCount >=1) {
+      alert('It was a fine bout! As expected of my adversary! We shall see each other again in the future!');
+    } else {
+      alert('BWAHAHAHAHHAHA!!! WERE YOU EVEN TRYING??? IF EVERY HUMAN IS LIKE YOU WORLD DOMINATION WILL BE SOOOOOO EASYYYYY!');
+    }
+    }
+
 const playRound = (playerSelection, computerSelection) => {
     let lowerCasePlayerSelection = (
         playerSelection === null
         ? null
-        : playerSelection.toLowerCase());
+        : playerSelection.toLowerCase().trim());
 
     if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
@@ -67,7 +75,7 @@ const game = () => {
     let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
         let computerSelection = computerPlay();
-        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)').trim();
+        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
         let gameResult = playRound(playerSelection, computerSelection);
         console.log('==========');
         console.log(`Round ${gameRoundStatus.length + 1}:`);
@@ -88,13 +96,7 @@ const game = () => {
     console.log(`You won ${winRoundCount} round${winRoundCount > 1 ? 's' : ''}`);
     console.log(`You lost ${loseRoundCount} round${loseRoundCount > 1 ? 's' : ''}`);
     console.log(`You tied ${tieRoundCount} round${tieRoundCount > 1 ? 's' : ''}`);
-    if (winRoundCount == 5) {
-        alert('WHAT?!?!?! ARE YOU EVEN A HUMAN?? GO DO A CAPTCHA RIGHT NOW YOU MASKED AI!');
-    } else if (winRoundCount >=1) {
-        alert('It was a fine bout! As expected of my adversary! We shall see each other again in the future!');
-    } else {
-        alert('BWAHAHAHAHHAHA!!! WERE YOU EVEN TRYING??? IF EVERY HUMAN IS LIKE YOU WORLD DOMINATION WILL BE SOOOOOO EASYYYYY!');
-    }
+    endGameDialogue(winRoundCount);
 }
 
 alert('Welcome to my lair Human, I see you have accepted my challenge of the ultimate rock paper scissor showdown. Your first test?\nOpen the console if you feel ready to face me, MWHAAHAHAHAHA!!!');
