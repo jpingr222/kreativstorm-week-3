@@ -52,7 +52,7 @@ const playRound = (playerSelection, computerSelection) => {
                 .concat(lowerCasePlayerSelection.slice(1)),
             computerSelection: computerSelection[0]
                 .toUpperCase()
-                .concat(lowerCasePlayerSelection.slice(1))
+                .concat(computerSelection.slice(1))
         };
         if (lowerCasePlayerSelection === computerSelection) {
             return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
