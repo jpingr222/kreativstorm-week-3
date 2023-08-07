@@ -37,7 +37,7 @@ const addFunnyMessage = (win) => {
 }
 
 const playRound = (playerSelection, computerSelection) => {
-    const lowerCasePlayerSelection = (
+    let lowerCasePlayerSelection = (
         playerSelection === null
         ? null
         : playerSelection.toLowerCase()
@@ -46,7 +46,7 @@ const playRound = (playerSelection, computerSelection) => {
     if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
     } else {
-        const userAndCompSelection = {
+        let userAndCompSelection = {
             playerSelection: lowerCasePlayerSelection[0]
                 .toUpperCase()
                 .concat(lowerCasePlayerSelection.slice(1)),
@@ -67,11 +67,11 @@ const playRound = (playerSelection, computerSelection) => {
 const game = () => {
     isGameOver = false;
     console.log('Welcome to Rock Paper Scissors!');
-    const gameRoundStatus = [];
+    let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
-        const computerSelection = computerPlay();
-        const playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
-        const gameResult = playRound(playerSelection, computerSelection);
+        let computerSelection = computerPlay();
+        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
+        let gameResult = playRound(playerSelection, computerSelection);
         console.log('==========');
         console.log(`Round ${gameRoundStatus.length + 1}:`);
         console.log(gameResult);
@@ -83,9 +83,9 @@ const game = () => {
             gameRoundStatus.push(0);
         }
     }
-    const winRoundCount = gameRoundStatus.filter(result => result === 1).length;
-    const loseRoundCount = gameRoundStatus.filter(result => result === -1).length;
-    const tieRoundCount = gameRoundStatus.filter(result => result === 0).length;
+    let winRoundCount = gameRoundStatus.filter(result => result === 1).length;
+    let loseRoundCount = gameRoundStatus.filter(result => result === -1).length;
+    let tieRoundCount = gameRoundStatus.filter(result => result === 0).length;
     console.log('==========');
     console.log('Game Over');
     console.log(`You won ${winRoundCount} round${winRoundCount > 1 ? 's' : ''}`);
