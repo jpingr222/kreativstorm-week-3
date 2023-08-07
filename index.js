@@ -67,7 +67,7 @@ const game = () => {
     let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
         let computerSelection = computerPlay();
-        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
+        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)').trim();
         let gameResult = playRound(playerSelection, computerSelection);
         console.log('==========');
         console.log(`Round ${gameRoundStatus.length + 1}:`);
