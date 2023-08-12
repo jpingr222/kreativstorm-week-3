@@ -70,7 +70,7 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
-const promptBox=(){
+const promptBox = () => {
     let input = prompt('Please enter your selection (rock, paper, or scissors)');
     if (input === null) => ;
 }
