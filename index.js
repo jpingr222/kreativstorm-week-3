@@ -70,13 +70,17 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
+const promptBox=(){
+    let input = prompt('Please enter your selection (rock, paper, or scissors)');
+    if (input === null) => ;
+}
 
 const game = () => {
     console.log('Welcome to Rock Paper Scissors!');
     let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
         let computerSelection = computerPlay();
-        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
+        let playerSelection = promptBox();
         let gameResult = playRound(playerSelection, computerSelection);
         console.log('==========');
         console.log(`Round ${gameRoundStatus.length + 1}:`);
@@ -88,9 +92,6 @@ const game = () => {
         } else if (gameResult.includes('tie')) {
             gameRoundStatus.push(0);
         }
-        $(window).bind('beforeunload', function(){
-                       return 'Are you sure you want to leave?';
-    });
     }
     
     let winRoundCount = gameRoundStatus.filter(result => result === 1).length;
