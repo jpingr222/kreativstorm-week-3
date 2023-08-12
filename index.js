@@ -88,11 +88,11 @@ const game = () => {
         } else if (gameResult.includes('tie')) {
             gameRoundStatus.push(0);
         }
+        $(window).bind('beforeunload', function(){
+                       return 'Are you sure you want to leave?';
+    });
     }
     
-    window.onbeforeunload = function(){
-        return 'Are you sure you want to leave?';
-    };
     let winRoundCount = gameRoundStatus.filter(result => result === 1).length;
     let loseRoundCount = gameRoundStatus.filter(result => result === -1).length;
     let tieRoundCount = gameRoundStatus.filter(result => result === 0).length;
