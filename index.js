@@ -75,10 +75,10 @@ const game = () => {
     let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
         let computerSelection = computerPlay();
-        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)'){
+        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)')
             if (input === null){
                 return;}
-                ;}
+        else{
         let gameResult = playRound(playerSelection, computerSelection);
         console.log('==========');
         console.log(`Round ${gameRoundStatus.length + 1}:`);
@@ -89,7 +89,7 @@ const game = () => {
             gameRoundStatus.push(-1);
         } else if (gameResult.includes('tie')) {
             gameRoundStatus.push(0);
-        }
+        }}
     }
     
     let winRoundCount = gameRoundStatus.filter(result => result === 1).length;
