@@ -70,18 +70,15 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
-const promptBox = () {
-    let input = prompt('Please enter your selection (rock, paper, or scissors)');
-    if (input === null){
-        return;
-}
-
 const game = () => {
     console.log('Welcome to Rock Paper Scissors!');
     let gameRoundStatus = [];
     while (gameRoundStatus.length < 5) {
         let computerSelection = computerPlay();
-        let playerSelection = promptBox();
+        let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)'){
+            if (input === null){
+                return;}
+                ;}
         let gameResult = playRound(playerSelection, computerSelection);
         console.log('==========');
         console.log(`Round ${gameRoundStatus.length + 1}:`);
