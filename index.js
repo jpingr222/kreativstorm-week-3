@@ -70,6 +70,7 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
+
 const game = () => {
     console.log('Welcome to Rock Paper Scissors!');
     let gameRoundStatus = [];
@@ -88,6 +89,10 @@ const game = () => {
             gameRoundStatus.push(0);
         }
     }
+    
+    window.onbeforeunload = function(){
+        return 'Are you sure you want to leave?';
+    };
     let winRoundCount = gameRoundStatus.filter(result => result === 1).length;
     let loseRoundCount = gameRoundStatus.filter(result => result === -1).length;
     let tieRoundCount = gameRoundStatus.filter(result => result === 0).length;
