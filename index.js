@@ -49,9 +49,12 @@ const playRound = (playerSelection, computerSelection) => {
     ? null
     : playerSelection.toLowerCase().trim());
 
-    if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
+    if (!validSelections.includes(lowerCasePlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
-    } else {
+    } else if (playerSelection === null) {
+        playerSelection = '';
+        continue;
+    }else {
         let userAndCompSelection = {
             playerSelection: lowerCasePlayerSelection[0]
                 .toUpperCase()
