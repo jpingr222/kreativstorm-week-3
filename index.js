@@ -44,7 +44,7 @@ const endGameDialogue =(winRoundCount) => {
     }
 
 const playRound = (playerSelection, computerSelection) => {
-
+    convertPlayerInput(playerSelection)
     if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
     } else {
@@ -64,6 +64,11 @@ const playRound = (playerSelection, computerSelection) => {
              return `You Lose! ${addFunnyMessage(false)} \uD83D\uDE1E ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
         }
     }
+}
+
+const convertPlayerInput = (playerSelection) => {
+    let lowerCasePlayerSelection = playerSelection !== null?playerSelection.toLowerCase().replace(/\s/g, ''):playerSelection;
+    return lowerCasePlayerSelection
 }
 
 const game = () => {
