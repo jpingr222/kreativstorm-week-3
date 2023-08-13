@@ -44,28 +44,33 @@ const endGameDialogue =(winRoundCount) => {
     }
 
 const playRound = (playerSelection, computerSelection) => {
-    let lowerCasePlayerSelection = (
+    try{ 
+        let lowerCasePlayerSelection = (
         playerSelection === null
         ? null
         : playerSelection.toLowerCase().trim());
 
-    if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
-        return 'Invalid selection! \u26A0 Please select again';
-    } else {
-        let userAndCompSelection = {
-            playerSelection: lowerCasePlayerSelection[0]
-                .toUpperCase()
-                .concat(lowerCasePlayerSelection.slice(1)),
-            computerSelection: computerSelection[0]
-                .toUpperCase()
-                .concat(computerSelection.slice(1))
-        };
-        if (lowerCasePlayerSelection === computerSelection) {
-            return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
-        } else if (playerIsWinner(lowerCasePlayerSelection, computerSelection)) {
-            return `You Win! ${addFunnyMessage(true)} \uD83C\uDF89 ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
+        if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
+            return 'Invalid selection! \u26A0 Please select again';
         } else {
-            return `You Lose! ${addFunnyMessage(false)} \uD83D\uDE1E ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
+            let userAndCompSelection = {
+                playerSelection: lowerCasePlayerSelection[0]
+                    .toUpperCase()
+                    .concat(lowerCasePlayerSelection.slice(1)),
+                computerSelection: computerSelection[0]
+                    .toUpperCase()
+                    .concat(computerSelection.slice(1))
+            };
+            if (lowerCasePlayerSelection === computerSelection) {
+                return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
+            } else if (playerIsWinner(lowerCasePlayerSelection, computerSelection)) {
+                return `You Win! ${addFunnyMessage(true)} \uD83C\uDF89 ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
+            } else {
+                return `You Lose! ${addFunnyMessage(false)} \uD83D\uDE1E ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
+            }
+        }
+        catch (null) {
+            return 'bye';
         }
     }
 }
