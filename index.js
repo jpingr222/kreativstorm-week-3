@@ -44,8 +44,8 @@ const endGameDialogue =(winRoundCount) => {
     }
 
 const playRound = (playerSelection, computerSelection) => {
-    convertUserInput(playerSelection)
-    if (playerSelection === null || !validSelections.includes(convertUserInput(playerSelection))) {
+    const lowerCasedPlayerSelection = convertUserInput(playerSelection)
+    if (playerSelection === null || !validSelections.includes(lowerCasedPlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
     } else {
         const convertedInputs = convertBothPlayersInput(playerSelection, computerSelection)
