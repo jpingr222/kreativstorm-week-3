@@ -48,6 +48,7 @@ const playRound = (playerSelection, computerSelection) => {
     if (playerSelection === null || !validSelections.includes(convertUserInput(playerSelection))) {
         return 'Invalid selection! \u26A0 Please select again';
     } else {
+        convertBothPlayersInput(playerSelection, computerSelection)
         
         if (convertUserInput(playerSelection) === computerSelection) {
             return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
@@ -63,6 +64,20 @@ const convertUserInput = (playerSelection) => {
     let lowerCasePlayerSelection = playerSelection !== null?playerSelection.toLowerCase().replace(/\s/g, ''):playerSelection;
     return lowerCasePlayerSelection
 }
+
+const convertBothPlayersInput = (playerSelection, computerSelection) => {
+    let userAndCompSelection = {
+        playerSelection: convertUserInput(playerSelection)[0]
+            .toUpperCase()
+            .concat(convertUserInput(playerSelection).slice(1)),
+        computerSelection: computerSelection[0]
+            .toUpperCase()
+            .concat(computerSelection.slice(1))
+    };
+
+    return userAndCompSelection
+}
+
 
 const game = () => {
     console.log('Welcome to Rock Paper Scissors!');
