@@ -48,8 +48,8 @@ const playRound = (playerSelection, computerSelection) => {
     if (playerSelection === null || !validSelections.includes(convertUserInput(playerSelection))) {
         return 'Invalid selection! \u26A0 Please select again';
     } else {
-        convertBothPlayersInput(playerSelection, computerSelection)
-        
+        const convertedInputs = convertBothPlayersInput(playerSelection, computerSelection)
+
         if (convertUserInput(playerSelection) === computerSelection) {
             return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
         } else if (playerIsWinner(convertUserInput(playerSelection), computerSelection)) {
