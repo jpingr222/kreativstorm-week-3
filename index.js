@@ -45,20 +45,20 @@ const endGameDialogue =(winRoundCount) => {
 
 const playRound = (playerSelection, computerSelection) => {
     convertPlayerInput(playerSelection)
-    if (playerSelection === null || !validSelections.includes(lowerCasePlayerSelection)) {
+    if (playerSelection === null || !validSelections.includes(convertPlayerInput(playerSelection))) {
         return 'Invalid selection! \u26A0 Please select again';
     } else {
         let userAndCompSelection = {
-            playerSelection: lowerCasePlayerSelection[0]
+            playerSelection: convertPlayerInput(playerSelection)[0]
                 .toUpperCase()
-                .concat(lowerCasePlayerSelection.slice(1)),
+                .concat(convertPlayerInput(playerSelection).slice(1)),
             computerSelection: computerSelection[0]
                 .toUpperCase()
                 .concat(computerSelection.slice(1))
         };
-        if (lowerCasePlayerSelection === computerSelection) {
+        if (convertPlayerInput(playerSelection) === computerSelection) {
             return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
-        } else if (playerIsWinner(lowerCasePlayerSelection, computerSelection)) {
+        } else if (playerIsWinner(convertPlayerInput(playerSelection), computerSelection)) {
              return `You Win! ${addFunnyMessage(true)} \uD83C\uDF89 ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
         } else {
              return `You Lose! ${addFunnyMessage(false)} \uD83D\uDE1E ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
