@@ -50,7 +50,7 @@ const playRound = (playerSelection, computerSelection) => {
         : playerSelection.toLowerCase().trim());
 
     if (playerSelection === null) {
-        return;
+        return 'Bye';
     } else { (!validSelections.includes(lowerCasePlayerSelection)) {
         return 'Invalid selection! \u26A0 Please select again';
     } else {
