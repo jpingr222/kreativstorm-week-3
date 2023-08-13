@@ -78,7 +78,6 @@ const convertBothPlayersInput = (playerSelection, computerSelection) => {
     return userAndCompSelection
 }
 
-
 const game = () => {
     console.log('Welcome to Rock Paper Scissors!');
     let gameRoundStatus = [];
