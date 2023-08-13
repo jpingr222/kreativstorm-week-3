@@ -51,11 +51,11 @@ const playRound = (playerSelection, computerSelection) => {
         const convertedInputs = convertBothPlayersInput(playerSelection, computerSelection)
 
         if (convertUserInput(playerSelection) === computerSelection) {
-            return `It's a tie! \uD83E\uDD14 You both picked ${userAndCompSelection['computerSelection']}`;
+            return `It's a tie! \uD83E\uDD14 You both picked ${convertedInputs['computerSelection']}`;
         } else if (playerIsWinner(convertUserInput(playerSelection), computerSelection)) {
-             return `You Win! ${addFunnyMessage(true)} \uD83C\uDF89 ${userAndCompSelection['playerSelection']} beats ${userAndCompSelection['computerSelection']}`;
+             return `You Win! ${addFunnyMessage(true)} \uD83C\uDF89 ${convertedInputs['playerSelection']} beats ${convertedInputs['computerSelection']}`;
         } else {
-             return `You Lose! ${addFunnyMessage(false)} \uD83D\uDE1E ${userAndCompSelection['computerSelection']} beats ${userAndCompSelection['playerSelection']}`;
+             return `You Lose! ${addFunnyMessage(false)} \uD83D\uDE1E ${convertedInputs['computerSelection']} beats ${convertedInputs['playerSelection']}`;
         }
     }
 }
