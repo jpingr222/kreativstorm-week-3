@@ -1,4 +1,5 @@
 const validSelections = ['rock', 'paper', 'scissors'];
+let gameResult;
 
 const computerPlay = () => validSelections[Math.floor(Math.random() * validSelections.length)];
 
@@ -45,8 +46,14 @@ const endGameDialogue =(winRoundCount) => {
 
 const playRound = (playerSelection, computerSelection) => {
     const lowerCasedPlayerSelection = convertUserInput(playerSelection)
-    if (playerSelection === null || !validSelections.includes(lowerCasedPlayerSelection)) {
-        return 'Invalid selection! \u26A0 Please select again';
+    if (playerSelection === null) {
+        if(prompt('If you press cancel again game is over. Are you a quitter?') === null){
+            return 'quit';
+        } else{
+            return 'Come on let\'s get this round over with.'
+        }
+    } else if (playerSelection === '' || !validSelections.includes(lowerCasedPlayerSelection)) {
+        return 'Invalid selection! \u26A0 Please select again';  
     } else {
         const convertedInputs = convertBothPlayersInput(playerSelection, computerSelection)
 
@@ -84,16 +91,22 @@ const game = () => {
     while (gameRoundStatus.length < 5) {
         let computerSelection = computerPlay();
         let playerSelection = prompt('Please enter your selection (rock, paper, or scissors)');
-        let gameResult = playRound(playerSelection, computerSelection);
-        console.log('==========');
-        console.log(`Round ${gameRoundStatus.length + 1}:`);
-        console.log(gameResult);
-        if (gameResult.includes('Win')) {
-            gameRoundStatus.push(1);
-        } else if (gameResult.includes('Lose')) {
-            gameRoundStatus.push(-1);
-        } else if (gameResult.includes('tie')) {
-            gameRoundStatus.push(0);
+        gameResult = playRound(playerSelection, computerSelection);
+        if (gameResult === 'quit') {
+            for (let i=0; i<5; i++){
+                gameRoundStatus.push(2);
+            }
+        } else {
+            console.log('==========');
+            console.log(`Round ${gameRoundStatus.length + 1}:`);
+            console.log(gameResult);
+            if (gameResult.includes('Win')) {
+                gameRoundStatus.push(1);
+            } else if (gameResult.includes('Lose')) {
+                gameRoundStatus.push(-1);
+            } else if (gameResult.includes('tie')) {
+                gameRoundStatus.push(0);
+            }
         }
     }
     let winRoundCount = gameRoundStatus.filter(result => result === 1).length;
@@ -104,7 +117,11 @@ const game = () => {
     console.log(`You won ${winRoundCount} round${winRoundCount > 1 ? 's' : ''}`);
     console.log(`You lost ${loseRoundCount} round${loseRoundCount > 1 ? 's' : ''}`);
     console.log(`You tied ${tieRoundCount} round${tieRoundCount > 1 ? 's' : ''}`);
-    endGameDialogue(winRoundCount);
+    if (gameResult !== 'quit') {
+        endGameDialogue(winRoundCount);
+    } else {
+        console.log('Go away looser!')
+    }
 }
 
 alert('Welcome to my lair Human, I see you have accepted my challenge of the ultimate rock paper scissor showdown. Your first test?\nOpen the console if you feel ready to face me, MWHAAHAHAHAHA!!!');
